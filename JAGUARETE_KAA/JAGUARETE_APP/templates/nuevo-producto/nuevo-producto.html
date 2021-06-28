@@ -3,39 +3,10 @@
 
 <section id="contenido">
     <article id="crear_producto">
-        <!-- TODO: agregar action (url a la que se envia el formulario)-->
-        <form method="post" action="" enctype="multipart/form-data"></form>
-        <!--TODO: agregar en todos los formularios-->
-        <h1>
-            <input type="text" name="nombre_producto" placeholder="Nombre" id="nombre_producto">
-        </h1><!--TODO: Quitar el H1, mal uso semantico-->
-
-        <div id="imagenes">
-            <label for="subir_imagen"> Subir imagen:</label>
-            <input id="subir_imagen" type="file" name="file[]" multiple>
-        </div>
-
-        <div id="categoria">
-
-            <select name="select" id="seleccion_categoria">
-                <option value="value1">categoria 1</option>
-                <option value="value2">categoria 2</option>
-                <option value="value3">categoria 3</option>
-            </select>
-
-
-
-                <div class="form-group">
-                    <label for="descripcion">Descripción</label>
-                    <textarea class="form-control" id="descripcion" rows="8"></textarea>
-                </div>
-            <br>
-            <div id="crear_precio">
-                <input type="text" name="precio" placeholder="precio" id="precio" required>
-
-                <button type="button" class="btn btn-success" >CREAR</button>
-            </div>
-        </div>
+        <form action="{% url 'nuevo-producto' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form_producto }}
+            <input type="submit" class="btn btn-success" value="Crear producto">
         </form>
     </article>
 </section>

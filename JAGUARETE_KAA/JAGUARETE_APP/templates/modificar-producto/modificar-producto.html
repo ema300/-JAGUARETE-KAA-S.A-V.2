@@ -1,0 +1,12 @@
+{% extends "layout/layout.html" %}
+{% block body %}
+
+<section id="contenido">
+    <h1>Modificar producto</h1>
+    <form action="{% url 'modificar-producto' producto.id %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form_producto }}
+        <input type="submit" class="btn btn-success" value="Modificar producto">
+    </form>
+</section>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "layout/layout.html" %}
+{% block body %}
+
+<section id="contenido">
+    <h1>Todos los productos</h1>
+    {% for producto in lista_productos %}
+    <article id="crear_producto">
+        <h3>{{ producto.titulo }}</h3>
+        <p> {{ producto.descripcion }}</p>
+        <p> {{ producto.precio }} </p>
+        <!--TODO: Botones de comprar y agregar al carrito-->
+    </article>
+    <hr>
+    {% empty %}
+    <article id="crear_producto">
+        <p>Aun no hay productos cargados</p>
+    </article>
+    {% endfor %}
+</section>
+{% endblock %}

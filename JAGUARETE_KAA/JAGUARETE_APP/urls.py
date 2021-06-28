@@ -9,8 +9,18 @@ urlpatterns = [
     path('acerca-de', views.acercaDe, name="acerca-de"),
     path('carrito', views.carrito, name="carrito"),
     path('login', views.login, name="login"),
-    path('producto', views.producto, name="producto"),
-    path('nuevo-producto', views.nuevoProducto, name="nuevo-producto"),
     path('registro', views.registro, name="registro"),
-    path('resultado-busqueda', views.resultadoBusqueda, name="resultado-busqueda")
+    path('resultado-busqueda', views.resultadoBusqueda, name="resultado-busqueda"),
+
+    #   --  CRUD PRODUCTOS  --  #
+    #Lista de productos
+    path('productos', views.productos, name="productos"),
+    #Un producto
+    path('productos/<int:producto_id>', views.producto, name="producto"),
+    #Crear producto
+    path('nuevo-producto', views.nuevoProducto, name="nuevo-producto"),
+    #Actualizar producto
+    path('productos/<int:producto_id>/modificar', views.modificarProducto, name="modificar-producto"),
+    #Eliminar producto
+    path('productos/<int:producto_id>/eliminar', views.eliminarProducto, name="eliminar-producto")
 ]

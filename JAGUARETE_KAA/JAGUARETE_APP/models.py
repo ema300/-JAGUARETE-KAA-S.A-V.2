@@ -9,11 +9,11 @@ class Categorias(models.Model):
     def __str__(self):
         return f"Descripcion {self.id}: {self.nombre}:\n{self.descripcion}\n\n"
 class Producto(models.Model):
-    titulo = models.CharField(max_length=30)
-    imagen = models.ImageField()
-    descripcion = models.CharField(max_length=250)
+    titulo = models.CharField(max_length=50)
+    descripcion = models.CharField(max_length=512)
     precio = models.FloatField()
-    categoria = ''
+    #imagen = models.ImageField()
+    #categoria = ''
 
     def __str__(self):
         return f"Libro {self.id}:\nTitulo:{self.titulo}\nDescripcion: {self.descripcion}\nPrecio:{self.precio}"
