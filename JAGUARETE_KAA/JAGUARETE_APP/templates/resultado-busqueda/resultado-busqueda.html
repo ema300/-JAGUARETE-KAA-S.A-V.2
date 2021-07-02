@@ -1,9 +1,22 @@
 {% extends "layout/layout.html" %}
 {% block body %}
 <section id="contenido">
-    <article>
-        <h1>Resultado de la Busqueda</h1>
-        <div id="bloque_Max"></div>
-    </article>
+    <h1>Resultado de la Busqueda</h1>
+    <div id="ultimos_productos">
+        {% for producto in productos %}
+        <div id="bloque">
+            <h2> {{ producto.titulo }} </h2>
+            <img src="/JAGUARETE_APP{{ producto.imagen.url }}" alt="Imagen del producto">
+            <p>{{ producto.descripcion }}</p>
+            <button onclick="window.location='producto/{{ producto.id }}'">Ver</button>
+        </div>
+        <hr>
+        {% empty %}
+        <div id="bloque">
+            <h2> No pudimos encontrar el producto :( </h2>
+        </div>
+        <hr>
+        {% endfor %}
+    </div>
 </section>
 {% endblock %}

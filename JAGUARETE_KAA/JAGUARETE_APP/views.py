@@ -25,7 +25,12 @@ def registro(req):
     return render(req, "registro/registro.html")
 
 def resultadoBusqueda(req):
-    return render(req, "resultado-busqueda/resultado-busqueda.html")
+    if req.method == "GET":
+        busqueda = req.GET
+        productos = Producto.objects.filter(titulo__icontains=busqueda['search'])
+    return render(req, "resultado-busqueda/resultado-busqueda.html", {
+        "productos": productos
+    })
 
 def categoria(req, nombre):
     productos = Producto.objects.filter(categoria__nombre__icontains=nombre)
