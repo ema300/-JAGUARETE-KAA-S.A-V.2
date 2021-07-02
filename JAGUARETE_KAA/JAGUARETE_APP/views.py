@@ -14,7 +14,6 @@ def carrito(req):
 
 def index(req):
     productos = Producto.objects.all().order_by('-id')[:3]
-    print(productos)
     return render(req, "index/index.html", {
         "ultimos_productos": productos
     })
@@ -27,6 +26,12 @@ def registro(req):
 
 def resultadoBusqueda(req):
     return render(req, "resultado-busqueda/resultado-busqueda.html")
+
+def categoria(req, nombre):
+    productos = Producto.objects.filter(categoria__nombre__icontains=nombre)
+    return render(req, "categoria/categoria.html", {
+        "productos": productos
+    })
 
 #   -- CRUD PRODUCTOS   --
 #   

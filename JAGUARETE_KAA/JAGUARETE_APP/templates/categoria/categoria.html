@@ -1,0 +1,28 @@
+{% extends "layout/layout.html" %}
+{% block body %}
+
+<!--SECTION-->
+<section id="contenido">
+        <!--    CARGA DE PRODUCTOS  -->
+        <div id="ultimos_productos">
+            {% for producto in productos %}
+            <div id="bloque">
+                <h2> {{ producto.titulo }} </h2>
+                <img src="/JAGUARETE_APP{{ producto.imagen.url }}" alt="Imagen del producto">
+                <p>{{ producto.descripcion }}</p>
+                <button onclick="window.location='producto/{{ producto.id }}'">Ver</button>
+            </div>
+            <hr>
+            {% empty %}
+            <div id="bloque">
+                <h2> Aun no hay productos cargados </h2>
+                <img src="#" alt="No hay productos">
+                <button>Ver</button>
+            </div>
+            <hr>
+            {% endfor %}
+        </div>
+</section>
+
+
+{% endblock %}

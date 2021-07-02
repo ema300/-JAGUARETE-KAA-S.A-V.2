@@ -36,7 +36,7 @@
                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> CATEGORÍAS <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     {% for categoria in lista_categorias %}
-                    <li><a href="#">{{categoria.nombre}}</a></li>
+                    <li><a href="/JAGUARETE_APP/categoria/{{categoria.nombre}}">{{categoria.nombre}}</a></li>
                     {% empty %}
                     <li><a>No hay categorias cargadas</a></li>
                     {% endfor %}

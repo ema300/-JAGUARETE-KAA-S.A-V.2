@@ -13,6 +13,7 @@ urlpatterns = [
     path('login', views.login, name="login"),
     path('registro', views.registro, name="registro"),
     path('resultado-busqueda', views.resultadoBusqueda, name="resultado-busqueda"),
+    path('categoria/<str:nombre>', views.categoria, name="resultado-busqueda"),
 
     #   --  CRUD PRODUCTOS  --  #
     #Crear producto
