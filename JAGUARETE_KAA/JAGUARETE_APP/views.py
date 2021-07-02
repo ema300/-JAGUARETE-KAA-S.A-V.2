@@ -13,7 +13,11 @@ def carrito(req):
     return render(req, "carrito/carrito.html")
 
 def index(req):
-    return render(req, "index/index.html")
+    productos = Producto.objects.all().order_by('-id')[:3]
+    print(productos)
+    return render(req, "index/index.html", {
+        "ultimos_productos": productos
+    })
 
 def login(req):
     return render(req, "login/login.html")
@@ -85,4 +89,4 @@ def eliminarProducto(req, producto_id):
 #Pasar el contexto a travez de un diccionario como tercer parametro
 #Se accede a las sesiones por medio de request.session["item"], los elementos de la sesion son un string
 
-#PAra trabajar con sesiones se debe usar manae.py migrate para crear la tabla de sesiones
+#Para trabajar con sesiones se debe usar manae.py migrate para crear la tabla de sesiones

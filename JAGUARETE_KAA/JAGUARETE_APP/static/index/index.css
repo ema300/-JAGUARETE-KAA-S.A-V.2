@@ -57,40 +57,16 @@ header {
   text-align: center;
   background: rgb(255, 255, 255);
 }
-#bloque_1 {
-  width: 30%;
 
-  float: left;
-  margin-top: 2%;
-  margin-left: 3%;
-  margin-right: 2%;
-  position: relative;
+#ultimos_productos{
+  /*TODO: acomodar las tarjetas de ultimos productos*/
+}
 
+.bloque {
   border-radius: 10px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
 }
-#bloque_2 {
-  width: 30%;
 
-  margin-top: 2%;
-  margin-right: 2%;
-  float: left;
-  position: relative;
-
-  border-radius: 10px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-}
-#bloque_3 {
-  width: 30%;
-
-  margin-top: 2%;
-  margin-right: 2%;
-  float: left;
-  position: relative;
-
-  border-radius: 10px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-}
 #bloque_Max {
   width: 94%;
 
@@ -113,7 +89,7 @@ header {
   text-transform: uppercase;
   outline: 0;
   background: #4caf50;
-  width: 100%;
+  width: 300px;
   border: 0;
   padding: 15px;
   color: #ffffff;
@@ -138,7 +114,11 @@ header {
   margin-left: 3%;
   margin-right: 2%;
   border-radius: 10px;
-  background-color: #a6a6a6;
+}
+
+#imagenes .imagen__producto{
+  width: 100%;
+  height: 100%;
 }
 
 #categoria {
@@ -159,7 +139,12 @@ header {
   padding: 10px;
   border-radius: 10px;
 }
-#producto button {
+
+.producto{
+  display: block;
+}
+
+.producto button {
   float: right;
   width: 190px;
   -webkit-transition: all 0.3 ease;
@@ -253,7 +238,7 @@ header {
       margin-left: 3%;  
       margin-right: 2%; 
   }
-  #producto button {
+  .producto button {
   
       height: auto;
       width: 94%;
@@ -265,21 +250,7 @@ header {
 
 /* bloques del cuerpo responsive */
 @media screen and (max-width: 650px) {
-  #bloque_1 {
-    height: auto;
-    width: 94%;
-    margin-top: 2%;
-    margin-left: 3%;
-    margin-right: 2%;
-  }
-  #bloque_2 {
-    height: auto;
-    width: 94%;
-    margin-top: 2%;
-    margin-left: 3%;
-    margin-right: 2%;
-  }
-  #bloque_3 {
+  .bloque {
     height: auto;
     width: 94%;
     margin-top: 2%;

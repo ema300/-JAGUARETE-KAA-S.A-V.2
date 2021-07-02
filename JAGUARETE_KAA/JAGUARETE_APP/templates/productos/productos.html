@@ -4,13 +4,26 @@
 <section id="contenido">
     <h1>Todos los productos</h1>
     {% for producto in lista_productos %}
-    <article id="crear_producto">
-        <h3>{{ producto.titulo }}</h3>
-        <p> {{ producto.descripcion }}</p>
-        <p> {{ producto.precio }} </p>
-        <!--TODO: Botones de comprar y agregar al carrito-->
+    <article class="producto">
+        <h1>{{ producto.titulo }}</H1>
+        <div id="imagenes">
+            <img src="/JAGUARETE_APP{{ producto.imagen.url }}" alt="Imagen de producto" class="imagen__producto">
+        </div>
+        <div id="categoria">
+            <div id="descripcion">
+                <h2>{{ producto.categoria }}</h2>
+                <p>{{ producto.descripcion }}</p>
+            </div> <br>
+            <div id="comprar">
+                <p id="precio">Precio: {{ producto.precio }}</p>
+                <button type="button" class="btn btn-success" role="link"
+                    onclick="window.location='producto/{{ producto.id }}'">VER PRODUCTO</button>
+                <button type="button" class="btn btn-success" role="link"
+                    onclick="window.location='carrito.html'">AGREGAR AL CARRITO</button>
+            </div>
+        </div>
     </article>
-    <hr>
+    <br>
     {% empty %}
     <article id="crear_producto">
         <p>Aun no hay productos cargados</p>

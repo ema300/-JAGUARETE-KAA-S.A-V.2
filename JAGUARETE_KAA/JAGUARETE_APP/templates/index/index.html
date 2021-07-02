@@ -3,36 +3,35 @@
 
 <!--SECTION-->
 <section id="contenido">
-    <article>
-        <div id="bloque_1">
-            <h2>ULTIMO PRODUCTO</h2>
-            <img src="" alt="">
-            <button onclick="window.location='producto'">Ver</button>
-        </div>
-        <div id="bloque_2">
-            <h2>ULTIMO PRODUCTO</h2>
-            <img src="" alt="">
-            <button onclick="window.location='producto'">Ver</button>
-        </div>
-        <div id="bloque_3">
-            <h2>ULTIMO PRODUCTO</h2>
-            <img src="" alt="">
-            <button onclick="window.location='producto'">Ver</button>
+        <!--    CARGA DE PRODUCTOS  -->
+        <div id="ultimos_productos">
+            {% for producto in ultimos_productos %}
+            <div id="bloque">
+                <h2> {{ producto.titulo }} </h2>
+                <img src="/JAGUARETE_APP{{ producto.imagen.url }}" alt="Imagen del producto">
+                <button onclick="window.location='producto/{{ producto.id }}'">Ver</button>
+            </div>
+            <hr>
+            {% empty %}
+            <div id="bloque">
+                <h2> Aun no hay productos cargados </h2>
+                <img src="#" alt="No hay productos">
+                <button>Ver</button>
+            </div>
+            <hr>
+            {% endfor %}
         </div>
 
         <div id="bloque_Max">
             <h2>MÁS PRODUCTOS</h2>
-            <li>
-                <ul>
-                    <a href="producto">Titulo producto</a>
-                    <a href="producto">Titulo producto</a>
-                    <a href="producto">Titulo producto</a>
-                    <a href="producto">Titulo producto</a>
-                </ul>
-            </li>
+            <ul>
+                <a href="producto">Titulo producto</a>
+                <a href="producto">Titulo producto</a>
+                <a href="producto">Titulo producto</a>
+                <a href="producto">Titulo producto</a>
+            </ul>
 
         </div>
-    </article>
 </section>
 
 

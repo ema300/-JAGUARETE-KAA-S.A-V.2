@@ -1,24 +1,29 @@
 {% extends "layout/layout.html" %}
 {% block body %}
 <!--SECTION-->
+<!--
+    TODO: que las imagenes carguen junto a la aplicacion
+    quitar el "/JAGUARETE_APP"
+-->
 <section id="contenido">
     <article id="producto">
         <h1>{{ producto.titulo }}</H1>
         <div id="imagenes">
-            <img src="" alt="">
+            <img src="/JAGUARETE_APP{{ producto.imagen.url }}" alt="Imagen de producto" class="imagen__producto">
         </div>
         <div id="categoria">
             <div id="descripcion">
-            <h2>Categoria</h2>
-            <p>{{ producto.descripcion }}</p>
-        </div> <br>
-        <div id="comprar">
-            <p id="precio">Precio: {{ producto.precio }}</p>
+                <h2>{{ producto.categoria }}</h2>
+                <p>{{ producto.descripcion }}</p>
+            </div> <br>
+            <div id="comprar">
+                <p id="precio">Precio: {{ producto.precio }}</p>
 
-            <button type="button" class="btn btn-success" role="link" onclick="window.location='Carrito.html'">AGREGAR
-            AL
-            CARRITO</button>
-        </div>
+                <button type="button" class="btn btn-success" role="link"
+                    onclick="window.location='carrito.html'">AGREGAR
+                    AL
+                    CARRITO</button>
+            </div>
         </div>
     </article>
 </section>

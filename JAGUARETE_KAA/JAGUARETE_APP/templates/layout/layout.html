@@ -4,7 +4,7 @@
 
 <head>
     <title>Jaguarete KAA</title>
-    <link rel="stylesheet" href="{% static 'index/index.css' %}"><!--Carga dela rchivo css-->
+    <link rel="stylesheet" href="{% static 'index/index.css' %}"><!--Carga del archivo css-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -28,21 +28,23 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index"><b style="color: brown;">JAGUA</b>RETE KAA</a>
+                <a class="navbar-brand" href="/JAGUARETE_APP/index"><b style="color: brown;">JAGUA</b>RETE KAA</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li><a href="index">HOME</a></li>
+                    <li><a href="/JAGUARETE_APP/index">HOME</a></li>
                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> CATEGORÍAS <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Page 1-1</a></li>
-                    <li><a href="#">Page 1-2</a></li>
-                    <li><a href="#">Page 1-3</a></li>
+                    {% for categoria in lista_categorias %}
+                    <li><a href="#">{{categoria.nombre}}</a></li>
+                    {% empty %}
+                    <li><a>No hay categorias cargadas</a></li>
+                    {% endfor %}
                 </ul>
                 </li>
                 <li><a href="acerca-de">ACERCA DE...</a></li>
                 <li><a href="mailto:miMail@gmail.com">CONTACTO</a></li>
-                <li><a href="producto">NUEVO PRODUCTO</a></li>
+                <li><a href="nuevo-producto">NUEVO PRODUCTO</a></li>
                 <form class="navbar-form navbar-left" action="resultado-busqueda">
                     <div class="input-group">
                     <input type="text" class="form-control" placeholder="Buscar" name="search">

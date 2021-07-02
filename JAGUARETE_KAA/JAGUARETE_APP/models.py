@@ -7,16 +7,16 @@ class Categorias(models.Model):
     descripcion = models.CharField(max_length=250)
 
     def __str__(self):
-        return f"Descripcion {self.id}: {self.nombre}:\n{self.descripcion}\n\n"
+        return f"{self.nombre}\n"
 class Producto(models.Model):
     titulo = models.CharField(max_length=50)
     descripcion = models.CharField(max_length=512)
+    categoria = models.ForeignKey(Categorias, on_delete=models.CASCADE, related_name="categoria", default="Tecnologia")
     precio = models.FloatField()
-    #imagen = models.ImageField()
-    #categoria = ''
+    imagen = models.ImageField(upload_to="images")
 
     def __str__(self):
-        return f"Libro {self.id}:\nTitulo:{self.titulo}\nDescripcion: {self.descripcion}\nPrecio:{self.precio}"
+        return f"{self.id}:\nTitulo:{self.titulo}\n--- {self.descripcion}\n---Precio:{self.precio}"
 
 class Carrito(models.Model):
     usuario = models.CharField(max_length=25)
