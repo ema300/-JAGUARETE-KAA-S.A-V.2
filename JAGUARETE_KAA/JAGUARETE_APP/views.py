@@ -31,6 +31,7 @@ def registro(req):
     if req.method== 'POST': #utilizo los campos que fueron llenados en el formulario
        form = UserRegisterForm(req.POST) # para acceder a la info que ha sido enviada a traves de este form
        if form.is_valid(): # si el form se lleno correctamente
+           form.save() #guardo el form creado
          username= form.cleaned_data['username'] # para acceder al campo username
          messages.success(req,f'Usuario {username} creado con exito') 
         #  return redirect('index')
