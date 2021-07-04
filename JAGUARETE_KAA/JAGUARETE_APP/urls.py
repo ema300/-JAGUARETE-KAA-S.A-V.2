@@ -14,6 +14,8 @@ urlpatterns = [
     path('acerca-de', views.acercaDe, name="acerca-de"),
     path('carrito', views.carrito, name="carrito"),
     path('carrito/<int:producto_id>', views.agregarCarrito, name="agregar-carrito"),
+    path('carrito/del/<str:titulo>', views.eliminarCarrito, name="quitar-carrito"),
+    path('carrito/delAll', views.vaciarCarrito, name="vaciar-carrito"),
 
 
     # path('login', views.login, name="login"),

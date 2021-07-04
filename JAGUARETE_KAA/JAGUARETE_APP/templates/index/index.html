@@ -10,7 +10,7 @@
             <div id="bloque">
                 <h2> {{ producto.titulo }} </h2>
                 <img src="/JAGUARETE_APP{{ producto.imagen.url }}" alt="Imagen del producto">
-                <button onclick="window.location='producto/{{ producto.id }}'">Ver</button>
+                <button onclick="window.location='/JAGUARETE_APP/producto/{{ producto.id }}'">Ver</button>
             </div>
             <hr>
             {% empty %}
@@ -26,10 +26,11 @@
         <div id="bloque_Max">
             <h2>MÁS PRODUCTOS</h2>
             <ul>
-                <a href="producto">Titulo producto</a>
-                <a href="producto">Titulo producto</a>
-                <a href="producto">Titulo producto</a>
-                <a href="producto">Titulo producto</a>
+                {% for producto in otros_productos %}
+                <a href="/JAGUARETE_APP/producto/{{ producto.id }}">{{producto.titulo}}</a>
+                {% empty %}
+                <a href="#">No hay mas productos</a>
+                {% endfor %}
             </ul>
 
         </div>

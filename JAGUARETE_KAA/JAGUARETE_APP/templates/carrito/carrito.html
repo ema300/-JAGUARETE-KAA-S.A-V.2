@@ -5,16 +5,22 @@
     <article>
         <h1>Carrito</h1>    
         <div id="bloque_Max">
-            {% if carrito %}
-                {% for producto in carrito %}
-                    <h3>{{producto.titulo}} <br> {{producto.precio}}$</h3>
-                    <hr>
-                {% empty %}
+                {% if carrito %}
+                    <ol>
+                        {% for producto in carrito %}
+                            <li>{{producto.titulo}}: ${{producto.precio}} <button type="button" class="btn btn-danger" role="link"
+                                onclick="window.location='/JAGUARETE_APP/carrito/del/{{producto.titulo}}'">X</button>
+                            </li>
+                            <hr>
+                        {% empty %}
+                            <h3>El carrito está vacio</h3>
+                        {% endfor %}
+                    </ol>
+                {% else %}
                     <h3>El carrito está vacio</h3>
-                {% endfor %}
-            {% else %}
-                <h3>El carrito está vacio</h3>
-            {% endif %}
+                {% endif %}
+                <button type="button" class="btn btn-danger" role="link" onclick="window.location='/JAGUARETE_APP/carrito/delAll'">Vaciar carrito</button>
+                <button type="button" class="btn btn-danger" role="link" onclick="window.location='#'">Finalizar Compra</button>
         </div>
     </article>
 </section>

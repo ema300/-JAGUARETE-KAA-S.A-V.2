@@ -24,11 +24,28 @@ def carrito(req):
         'carrito': carrito
     })
 
-#Posiblemente se dabe eliminar
+def vaciarCarrito(req):
+    req.session['carrito'] = []
+    return carrito(req)
+
+def eliminarCarrito(req, titulo):
+    if not "carrito" in req.session:
+        req.session['carrito'] = []
+        return carrito(req)
+    producto = Producto.objects.get(titulo=titulo)
+
+    carr = req.session['carrito']
+    print(len(carr))
+    for i in range(len(carr)):
+        if carr[i]['titulo'] == producto.titulo:
+            del carr[i]
+            break
+    req.session['carrito'] = carr
+    return carrito(req)
+
 def agregarCarrito(req, producto_id):
     if not "carrito" in req.session:
         req.session['carrito'] = []
-
     producto = Producto.objects.get(id=producto_id)
     req.session['carrito'] += [{"titulo": producto.titulo, "precio": producto.precio}]
     return carrito(req)
@@ -36,9 +53,10 @@ def agregarCarrito(req, producto_id):
 def index(req):
     if "carrito" not in req.session:
         req.session['carrito'] = []
-    productos = Producto.objects.all().order_by('-id')[:3]
+    productos = Producto.objects.all().order_by('-id')[:7]
     return render(req, "index/index.html", {
-        "ultimos_productos": productos
+        "ultimos_productos": productos[0:3],
+        "otros_productos": productos[3:7]
     })
 
 def login(req):
