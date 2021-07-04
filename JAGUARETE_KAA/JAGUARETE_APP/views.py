@@ -1,9 +1,15 @@
+
 from django.http.response import HttpResponseRedirect
 from django.urls import reverse
 from .models import Producto
 from .forms import FormularioProducto
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.http import HttpResponse #Para peticiones HTTP
+
+# from django.contrib.auth.forms import  UserCreationForm # formulario de django por defauld
+from .forms import UserRegisterForm # formulario de django sobreescrito
+from django.contrib import messages
+
 
 # Create your views here.
 def acercaDe(req):
@@ -22,7 +28,18 @@ def login(req):
     return render(req, "login/login.html")
 
 def registro(req):
-    return render(req, "registro/registro.html")
+    if req.method== 'POST': #utilizo los campos que fueron llenados en el formulario
+       form = UserRegisterForm(req.POST) # para acceder a la info que ha sido enviada a traves de este form
+       if form.is_valid(): # si el form se lleno correctamente
+         username= form.cleaned_data['username'] # para acceder al campo username
+         messages.success(req,f'Usuario {username} creado con exito') 
+        #  return redirect('index')
+
+    else:  #si es por GET
+        form=UserRegisterForm()
+    context= {'form':form}    
+
+    return render(req, "registro/registro.html",context)
 
 def resultadoBusqueda(req):
     if req.method == "GET":

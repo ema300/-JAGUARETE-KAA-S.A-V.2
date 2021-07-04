@@ -14,11 +14,20 @@
 </head>
 
 <body>
+    <!-- si hay mensajes -->
+    {% if messages %} 
+    {% for message in messages %}
+    <div class="notification {{message.tags}}">
+        {{message}}
+    </div>
+    {%endfor%}
+    {%endif%}
     <div id="contenedor">
         <header id="encabezado">
             <button type="button" class="btn btn-success" role="link" onclick="window.location='login'">LOGIN</button>
             <button type="button" class="btn btn-success" role="link" onclick="window.location='registro'">REGISTRO</button>
             <button type="button" class="btn btn-success" role="link" onclick="window.location='carrito'">CARRITO</button>
+       
         </header>
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">

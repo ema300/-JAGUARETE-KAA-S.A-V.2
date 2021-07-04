@@ -1,7 +1,7 @@
 {% extends "layout/layout.html" %}
 {% block body %}
 <!--SECTION-->
-<form action="#" target="" method="get" id="registro" name="formDatosPersonales">
+<!-- <form action="#" target="" method="get" id="registro" name="formDatosPersonales">
 
     <label for="usuario">Usuario</label>
     <input type="text" maxlength="20" name="usuario" id="usuario" placeholder="Nombre Usuario" required
@@ -19,5 +19,17 @@
     <br>
 
     <input type="submit" name="enviar" onclick="validar()" value="Enviar Formulario" />
+</form> -->
+
+
+<form class="form" method="POST">
+    {%csrf_token%}
+
+    {{form.as_p}}
+    <button type="submit" id="submit"> Registrarse </button>
+
+
+
+
 </form>
 {% endblock %}
