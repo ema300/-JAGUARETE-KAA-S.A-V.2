@@ -26,6 +26,7 @@ def index(req):
     })
 
 def login(req):
+    messages.success(req,f'Usuario {username} creado con exito')
     return render(req, "login/login.html")
 
 def cerrarSesion(req):

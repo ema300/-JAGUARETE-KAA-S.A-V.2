@@ -31,11 +31,12 @@
             <button type="button" class="btn btn-success" role="link" onclick="window.location='login'">LOGIN</button>
             <button type="button" class="btn btn-success" role="link" onclick="window.location='registro'">REGISTRO</button>
             {%else%}
+            <button type="button" class="btn btn-success" role="link" onclick="window.location='cerrar'">CERRAR SESION</button>
             <!-- si tiene permiso de ver al carrito -->
-            {{perms.JAGUARETE_APP.view_carrito}} 
+            <!-- {{perms.JAGUARETE_APP.view_carrito}}  -->
             {%if perms.JAGUARETE_APP.view_carrito%}
             <button type="button" class="btn btn-success" role="link" onclick="window.location='carrito'">CARRITO</button>
-            <button type="button" class="btn btn-success" role="link" onclick="window.location='cerrar'">CERRAR SESION</button>
+            
             {%endif%}
                 {%endif%}
         </header>
