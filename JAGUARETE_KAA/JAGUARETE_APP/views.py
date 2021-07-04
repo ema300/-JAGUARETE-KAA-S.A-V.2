@@ -117,7 +117,7 @@ def productos(req):
 # Crear (cargar) un nuevo producto
 def nuevoProducto(req):
     if req.method == "POST":
-        formulario = FormularioProducto(req.POST)
+        formulario = FormularioProducto(req.POST, req.FILES)
         if formulario.is_valid():#Lado del servidor
             formulario.save()
             print("---Se guardo un producto---")
