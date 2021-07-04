@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    {{perms.CARRITO}}
     <!-- si hay mensajes -->
     {% if messages %} 
     {% for message in messages %}
@@ -25,11 +26,17 @@
     <div id="contenedor">
         <header id="encabezado">
            
+            
+            {%if not request.user.is_authenticated %}
             <button type="button" class="btn btn-success" role="link" onclick="window.location='login'">LOGIN</button>
             <button type="button" class="btn btn-success" role="link" onclick="window.location='registro'">REGISTRO</button>
-            {%if request.user.is.authenticated %}
+            {%else%}
+            <!-- si tiene permiso de ver al carrito -->
+            {{perms.JAGUARETE_APP.view_carrito}} 
+            {%if perms.JAGUARETE_APP.view_carrito%}
             <button type="button" class="btn btn-success" role="link" onclick="window.location='carrito'">CARRITO</button>
-       
+            <button type="button" class="btn btn-success" role="link" onclick="window.location='cerrar'">CERRAR SESION</button>
+            {%endif%}
                 {%endif%}
         </header>
         <nav class="navbar navbar-inverse">
@@ -56,9 +63,13 @@
                 </li>
                 <li><a href="acerca-de">ACERCA DE...</a></li>
                 <li><a href="mailto:miMail@gmail.com">CONTACTO</a></li>
-
-                {%if request.user.is.authenticated %}
+          
+                {%if request.user.is_authenticated %}
+                  <!-- si no tiene permiso de ver al carrito -->
+                {%if not perms.JAGUARETE_APP.view_carrito%}
                 <li><a href="nuevo-producto">NUEVO PRODUCTO</a></li>
+                {%endif%} 
+              
                 {%endif%}
                 
                 <form class="navbar-form navbar-left" action="/JAGUARETE_APP/resultado-busqueda" method="GET">

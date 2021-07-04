@@ -21,6 +21,7 @@ urlpatterns = [
 
     path('login', LoginView.as_view(template_name='login/login.html'), name="login"),
     path('logout', LogoutView.as_view(template_name='login/login.html'), name="logout"),
+    path('cerrar', views.cerrarSesion, name="cerrar"),
 
     path('registro', views.registro, name="registro"),
     path('resultado-busqueda', views.resultadoBusqueda, name="resultado-busqueda"),

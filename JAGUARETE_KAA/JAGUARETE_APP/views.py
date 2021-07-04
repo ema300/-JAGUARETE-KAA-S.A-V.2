@@ -9,6 +9,7 @@ from django.http import HttpResponse #Para peticiones HTTP
 # from django.contrib.auth.forms import  UserCreationForm # formulario de django por defauld
 from .forms import UserRegisterForm # formulario de django sobreescrito
 from django.contrib import messages
+from django.contrib.auth import logout
 
 
 # Create your views here.
@@ -26,6 +27,11 @@ def index(req):
 
 def login(req):
     return render(req, "login/login.html")
+
+def cerrarSesion(req):
+    logout(req)
+    messages.success(req,f'sesion cerrada correctamente')
+    return redirect('index')
 
 def registro(req):
     if req.method== 'POST': #utilizo los campos que fueron llenados en el formulario
