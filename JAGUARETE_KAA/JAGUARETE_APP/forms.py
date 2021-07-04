@@ -12,7 +12,7 @@ class FormularioProducto(forms.ModelForm):
         fields = ('titulo', 'descripcion', 'categoria', 'precio')
 
 class UserRegisterForm(UserCreationForm):
-    usuario= forms.CharField(label=' Usuario ')
+    username= forms.CharField(label=' Usuario ')
     email = forms.EmailField()
     password1=forms.CharField(label=' Contraseña ',widget=forms.PasswordInput)
     password2=forms.CharField(label=' Confirmar Contraseña ',widget=forms.PasswordInput)
@@ -21,5 +21,5 @@ class UserRegisterForm(UserCreationForm):
     
     class Meta:
         model=User # va estar asociada al usuario
-        fields= ['usuario','email','password1','password2'] # campos que se veran en la vista del form
+        fields= ['username','email','password1','password2'] # campos que se veran en la vista del form
         help_texts = {k:"" for k in fields} #sobreescribo los textos por vacio

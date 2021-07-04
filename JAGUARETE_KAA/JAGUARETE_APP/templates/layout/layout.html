@@ -24,10 +24,13 @@
     {%endif%}
     <div id="contenedor">
         <header id="encabezado">
+           
             <button type="button" class="btn btn-success" role="link" onclick="window.location='login'">LOGIN</button>
             <button type="button" class="btn btn-success" role="link" onclick="window.location='registro'">REGISTRO</button>
+            {%if request.user.is.authenticated %}
             <button type="button" class="btn btn-success" role="link" onclick="window.location='carrito'">CARRITO</button>
        
+                {%endif%}
         </header>
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
@@ -53,7 +56,11 @@
                 </li>
                 <li><a href="acerca-de">ACERCA DE...</a></li>
                 <li><a href="mailto:miMail@gmail.com">CONTACTO</a></li>
+
+                {%if request.user.is.authenticated %}
                 <li><a href="nuevo-producto">NUEVO PRODUCTO</a></li>
+                {%endif%}
+                
                 <form class="navbar-form navbar-left" action="/JAGUARETE_APP/resultado-busqueda" method="GET">
                     <div class="input-group">
                     <input type="text" class="form-control" placeholder="Buscar" name="search">

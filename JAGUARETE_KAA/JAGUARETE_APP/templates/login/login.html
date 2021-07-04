@@ -3,19 +3,20 @@
 <!--LOG IN-->
 <div class="login-page" id="bloque_Max">
     <div class="form">
-        <h2>Inicio Sesión</h2>
+        <h2>Inicio Sesión</h2><br>
         <!-- <form class="login-form">
             <input type="text" placeholder="Usuario" />
             <input type="password" placeholder="Contraseña" />
             <button>login</button>
             <p class="message">No estas Registrado? <a href="Registro.html">Crear cuenta</a></p>
         </form> -->
-        <form class="form" method="POST">
+        <form  method="POST">
             {%csrf_token%}
 
             {{form.as_p}}
+            <p class="message">No estas Registrado? <a href="registro">Crear cuenta</a></p>
+           
             <button type="submit" id="submit"> Login </button>
-
 
 
 
