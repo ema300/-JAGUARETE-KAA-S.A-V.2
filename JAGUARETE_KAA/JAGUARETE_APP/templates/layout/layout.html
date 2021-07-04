@@ -67,7 +67,7 @@
           
                 {%if request.user.is_authenticated %}
                   <!-- si no tiene permiso de ver al carrito -->
-                {%if not perms.JAGUARETE_APP.view_carrito%}
+                {%if perms.JAGUARETE_APP.delete_producto%}
                 <li><a href="nuevo-producto">NUEVO PRODUCTO</a></li>
                 {%endif%} 
               
