@@ -9,7 +9,7 @@ class FormularioProducto(forms.ModelForm):
     #Campos del modelo
     class Meta:
         model = Producto
-        fields = ('titulo', 'descripcion', 'categoria', 'precio')
+        fields = ('titulo', 'descripcion', 'categoria', 'precio', 'imagen')
 
 class UserRegisterForm(UserCreationForm):
     username= forms.CharField(label=' Usuario ')

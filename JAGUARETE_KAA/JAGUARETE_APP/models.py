@@ -26,6 +26,12 @@ class Carrito(models.Model):
     def __str__(self):
         return f"Usuario {self.id} -> {self.usuario}\nLista de productos: {self.lista_productos}\nTotal: {self.total_carrito}"
 
+class Usuario(models.Model):
+    usuario = models.CharField(max_length=25)
+    password = models.CharField(max_length=16)
+
+    def __str__(self):
+        return f"ID: {self.id}\tUsuario:{self.usuario}"
 #Tras crear un modelo se debe ejecutar 
 # manage.py makemigrations -> despliega sobre la base de datos
 # manage.py migrate -> implementa los cambios

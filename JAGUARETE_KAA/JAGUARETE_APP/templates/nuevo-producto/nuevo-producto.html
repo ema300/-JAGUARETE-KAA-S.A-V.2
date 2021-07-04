@@ -3,10 +3,10 @@
 
 <section id="contenido">
     <article id="crear_producto">
-        <form action="{% url 'nuevo-producto' %}" method="post" enctype="multipart/form-data">
+        <form action="{% url 'nuevo-producto' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form_producto }}
-            <input type="submit" class="btn btn-success" value="Crear producto">
+            <button type="submit" class="btn btn-success">Crear producto</button>
         </form>
     </article>
 </section>

@@ -13,6 +13,7 @@ urlpatterns = [
     path('index', views.index, name="index"),
     path('acerca-de', views.acercaDe, name="acerca-de"),
     path('carrito', views.carrito, name="carrito"),
+    path('carrito/<int:producto_id>', views.agregarCarrito, name="agregar-carrito"),
 
 
     # path('login', views.login, name="login"),

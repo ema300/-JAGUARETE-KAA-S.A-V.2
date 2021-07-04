@@ -10,7 +10,7 @@
                 <h2> {{ producto.titulo }} </h2>
                 <img src="/JAGUARETE_APP{{ producto.imagen.url }}" alt="Imagen del producto">
                 <p>{{ producto.descripcion }}</p>
-                <button onclick="window.location='producto/{{ producto.id }}'">Ver</button>
+                <button onclick="window.location='/JAGUARETE_APP/producto/{{ producto.id }}'">Ver</button>
             </div>
             <hr>
             {% empty %}

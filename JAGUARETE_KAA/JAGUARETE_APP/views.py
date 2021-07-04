@@ -17,9 +17,25 @@ def acercaDe(req):
     return render(req, "acerca-de/acerca-de.html")
 
 def carrito(req):
-    return render(req, "carrito/carrito.html")
+    if not "carrito" in req.session:
+        req.session['carrito'] = []
+    carrito = req.session['carrito']
+    return render(req, "carrito/carrito.html",{
+        'carrito': carrito
+    })
+
+#Posiblemente se dabe eliminar
+def agregarCarrito(req, producto_id):
+    if not "carrito" in req.session:
+        req.session['carrito'] = []
+
+    producto = Producto.objects.get(id=producto_id)
+    req.session['carrito'] += [{"titulo": producto.titulo, "precio": producto.precio}]
+    return carrito(req)
 
 def index(req):
+    if "carrito" not in req.session:
+        req.session['carrito'] = []
     productos = Producto.objects.all().order_by('-id')[:3]
     return render(req, "index/index.html", {
         "ultimos_productos": productos
@@ -36,11 +52,11 @@ def cerrarSesion(req):
 
 def registro(req):
     if req.method== 'POST': #utilizo los campos que fueron llenados en el formulario
-       form = UserRegisterForm(req.POST) # para acceder a la info que ha sido enviada a traves de este form
-       if form.is_valid(): # si el form se lleno correctamente
-         form.save() #guardo el form creado
-         username= form.cleaned_data['username'] # para acceder al campo username
-         messages.success(req,f'Usuario {username} creado con exito') 
+        form = UserRegisterForm(req.POST) # para acceder a la info que ha sido enviada a traves de este form
+        if form.is_valid(): # si el form se lleno correctamente
+            form.save() #guardo el form creado
+            username= form.cleaned_data['username'] # para acceder al campo username
+            messages.success(req,f'Usuario {username} creado con exito') 
         #  return redirect('index')
 
     else:  #si es por GET
