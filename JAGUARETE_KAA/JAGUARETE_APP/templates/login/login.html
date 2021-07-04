@@ -4,11 +4,21 @@
 <div class="login-page" id="bloque_Max">
     <div class="form">
         <h2>Inicio Sesión</h2>
-        <form class="login-form">
+        <!-- <form class="login-form">
             <input type="text" placeholder="Usuario" />
             <input type="password" placeholder="Contraseña" />
             <button>login</button>
             <p class="message">No estas Registrado? <a href="Registro.html">Crear cuenta</a></p>
+        </form> -->
+        <form class="form" method="POST">
+            {%csrf_token%}
+
+            {{form.as_p}}
+            <button type="submit" id="submit"> Login </button>
+
+
+
+
         </form>
     </div>
-{% endblock %}
+    {% endblock %}

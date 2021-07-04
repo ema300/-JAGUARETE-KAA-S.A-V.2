@@ -6,18 +6,23 @@ from django.conf.urls.static import static
 from . import views
 
 #login de django
-
+from django.contrib.auth.views import LoginView,LogoutView
 
 urlpatterns = [
     path('', views.index, name="index"),
     path('index', views.index, name="index"),
     path('acerca-de', views.acercaDe, name="acerca-de"),
     path('carrito', views.carrito, name="carrito"),
-    path('login', views.login, name="login"),
+
+
+    # path('login', views.login, name="login"),
+    #login de django
+
+
+    path('login', LoginView.as_view(template_name='login/login.html'), name="login"),
+    path('logout', LogoutView.as_view(template_name='login/login.html'), name="logout"),
 
     path('registro', views.registro, name="registro"),
-
-
     path('resultado-busqueda', views.resultadoBusqueda, name="resultado-busqueda"),
     path('categoria/<str:nombre>', views.categoria, name="resultado-busqueda"),
 
