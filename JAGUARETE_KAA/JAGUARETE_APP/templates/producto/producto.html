@@ -18,10 +18,23 @@
             </div> <br>
             <div id="comprar">
                 <p id="precio">Precio: {{ producto.precio }}</p>
-                <button type="button" class="btn btn-success" role="link"
-                    onclick="window.location='/JAGUARETE_APP/carrito/{{producto.id}}'">AGREGAR
-                    AL
-                    CARRITO</button>
+             {%if request.user.is_authenticated %}
+                <!-- si no tiene permiso de ver al carrito -->
+              {%if perms.JAGUARETE_APP.delete_producto%}
+              <button type="button" class="btn btn-success" role="link"
+              onclick="window.location='eliminar-producto'">Modificar</button><br>
+           
+              <button type="button" class="btn btn-success" role="link"
+              onclick="window.location='modificar-producto'">Eliminar</button>
+              {%endif%} 
+              {%if perms.JAGUARETE_APP.view_carrito%}
+              <button type="button" class="btn btn-success" role="link"
+                  onclick="window.location='/JAGUARETE_APP/carrito/{{producto.id}}'">AGREGAR
+                  AL
+                  CARRITO</button>
+             {%endif%} 
+            {%endif%}
+             
             </div>
         </div>
     </article>
