@@ -22,9 +22,9 @@
                 <!-- si no tiene permiso de ver los botones -->
             {%if perms.JAGUARETE_APP.delete_producto%}
             <button type="button" class="btn btn-success" role="link"
-            onclick="window.location='/JAGUARETE_APP/productos/{{producto.id}}/modificar'">Modificar</button><br>
+            onclick="window.location='/JAGUARETE_APP/productos/{{producto.id}}/modificar'">Modificar</button><br><br>
             
-            <button type="button" class="btn btn-success" role="link"
+            <button id="button_eliminar_producto" type="button" class="btn btn-success" role="link"
             onclick="window.location='/JAGUARETE_APP/productos/{{producto.id}}/eliminar'">Eliminar</button>
             {%endif%} 
             {%if perms.JAGUARETE_APP.view_carrito%}

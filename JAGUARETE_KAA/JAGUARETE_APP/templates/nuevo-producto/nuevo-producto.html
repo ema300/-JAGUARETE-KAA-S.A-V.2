@@ -1,13 +1,38 @@
 {% extends "layout/layout.html" %}
 {% block body %}
 
-<section id="contenido">
-    <article id="crear_producto">
-        <form action="{% url 'nuevo-producto' %}" method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form_producto }}
-            <button type="submit" class="btn btn-success">Crear producto</button>
-        </form>
-    </article>
-</section>
+               <section id="contenido">
+                <article id="crear_producto">
+                    <form action="{% url 'nuevo-producto' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                    <h1>
+                        {{form_producto.titulo}}
+                    </h1>
+            
+                    <div id="imagenes">
+                        <p>{{form_producto.imagen}}</p>
+                    </div>
+            
+                    <div id="categoria">
+            
+                        <p>{{ form_producto.categoria }}</p>
+                       
+            
+            
+            
+                            <div class="form-group" >
+                                <label for="descripcion">Descripción</label>
+                                <p id="descripcion">{{ form_producto.descripcion }}</p>
+                            </div>
+                        <br>
+                        <div id="crear_precio">
+                         
+                            <p id="precio">Precio: {{ form_producto.precio }}</p>
+            
+                            <button type="submit" class="btn btn-success">Crear producto</button>
+                        </div>
+                    </div>
+                    </form>
+                </article>
+            </section>
 {% endblock %}

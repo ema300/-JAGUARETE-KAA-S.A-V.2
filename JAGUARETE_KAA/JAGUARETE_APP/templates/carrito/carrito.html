@@ -8,7 +8,8 @@
                 {% if carrito %}
                     <ol>
                         {% for producto in carrito %}
-                            <li>{{producto.titulo}}: ${{producto.precio}} <button type="button" class="btn btn-danger" role="link"
+                            <li>{{producto.titulo}}: ${{producto.precio}} 
+                                <button id="button_quitar" type="button" role="link"
                                 onclick="window.location='/JAGUARETE_APP/carrito/del/{{producto.titulo}}'">X</button>
                             </li>
                             <hr>
@@ -19,8 +20,8 @@
                 {% else %}
                     <h3>El carrito está vacio</h3>
                 {% endif %}
-                <button type="button" class="btn btn-danger" role="link" onclick="window.location='/JAGUARETE_APP/carrito/delAll'">Vaciar carrito</button>
-                <button type="button" class="btn btn-danger" role="link" onclick="window.location='#'">Finalizar Compra</button>
+                <button id="button_vaciar" type="button" class="btn btn-danger" role="link" onclick="window.location='/JAGUARETE_APP/carrito/delAll'">Vaciar carrito</button>
+                <button id="button_finalizar"type="button" class="btn btn-danger" role="link" onclick="window.location='#'">Finalizar Compra</button>
         </div>
     </article>
 </section>
