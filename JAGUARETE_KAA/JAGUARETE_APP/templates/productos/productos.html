@@ -3,31 +3,37 @@
 
 <section id="contenido">
     <h1>Todos los productos</h1>
+    <hr>
+    <div class="lista_productos">
     {% for producto in lista_productos %}
     <article class="producto">
-        <h1>{{ producto.titulo }}</H1>
-        <div id="imagenes">
-            <img src="/JAGUARETE_APP{{ producto.imagen.url }}" alt="Imagen de producto" class="imagen__producto">
-        </div>
-        <div id="categoria">
-            <div id="descripcion">
-                <h2>{{ producto.categoria }}</h2>
-                <p>{{ producto.descripcion }}</p>
-            </div> <br>
-            <div id="comprar">
-                <p id="precio">Precio: {{ producto.precio }}</p>
-                <button type="button" class="btn btn-success" role="link"
-                    onclick="window.location='producto/{{ producto.id }}'">VER PRODUCTO</button>
-                <button type="button" class="btn btn-success" role="link"
-                    onclick="window.location='carrito.html'">AGREGAR AL CARRITO</button>
+            <h1>{{ producto.titulo }}</H1>
+            <div class="detalle_producto">
+                <div id="imagenes">
+                    <img src="/JAGUARETE_APP{{ producto.imagen.url }}" alt="Imagen de producto" class="imagen__producto">
+                </div>
+                <div id="categoria">
+                    <div id="descripcion">
+                        <h2>{{ producto.categoria }}</h2>
+                        <p>{{ producto.descripcion }}</p>
+                    </div> <br>
+                    <div id="comprar">
+                        <p id="precio">${{ producto.precio }}</p>
+                        <button type="button" class="btn btn-success" role="link"
+                            onclick="window.location='producto/{{ producto.id }}'">VER PRODUCTO</button>
+                        <button type="button" class="btn btn-success" role="link"
+                            onclick="window.location='carrito.html'">AGREGAR AL CARRITO</button>
+                    </div>
+                </div>
             </div>
-        </div>
-    </article>
+        </article>
+        <hr>
+        {% empty %}
+        <article id="crear_producto">
+            <p>Aun no hay productos cargados</p>
+        </article>
+        {% endfor %}
+    </div>
     <br>
-    {% empty %}
-    <article id="crear_producto">
-        <p>Aun no hay productos cargados</p>
-    </article>
-    {% endfor %}
 </section>
 {% endblock %}

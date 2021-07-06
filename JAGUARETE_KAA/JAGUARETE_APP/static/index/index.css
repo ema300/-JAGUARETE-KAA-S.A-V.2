@@ -139,10 +139,29 @@ header {
   float: left;
   padding: 10px;
   border-radius: 10px;
+  font-size: 22px;
 }
 
 .producto{
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.producto h1{
   display: block;
+}
+
+.lista_productos{
+  display: block;
+  
+}
+
+.detalle_producto{
+  display: flex;
+  justify-content: space-around;
 }
 
 .producto button {
@@ -153,6 +172,11 @@ header {
   cursor: pointer;
   border-radius: 10px;
 }
+
+#comprar button{
+  margin:10px;
+}
+
 #crear_producto button {
 
   float: right;
