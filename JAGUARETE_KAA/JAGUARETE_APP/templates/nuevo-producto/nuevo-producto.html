@@ -5,9 +5,9 @@
                 <article id="crear_producto">
                     <form action="{% url 'nuevo-producto' %}" method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
-                    <h1>
+                    <h3>
                         {{form_producto.titulo}}
-                    </h1>
+                    </h3>
             
                     <div id="imagenes">
                         <p>{{form_producto.imagen}}</p>
@@ -27,7 +27,7 @@
                         <br>
                         <div id="crear_precio">
                          
-                            <p id="precio">Precio: {{ form_producto.precio }}</p>
+                            <p id="zoom_ingreso_texto">Precio: {{ form_producto.precio }}</p>
             
                             <button type="submit" class="btn btn-success">Crear producto</button>
                         </div>

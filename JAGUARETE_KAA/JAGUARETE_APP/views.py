@@ -59,13 +59,13 @@ def index(req):
         "otros_productos": productos[3:7]
     })
 
-def login(req):
-    messages.success(req,f'Usuario {username} creado con exito')
+def login(req): 
+    messages.success(req,f'login exitoso')
     return render(req, "login/login.html")
 
 def cerrarSesion(req):
     logout(req)
-    messages.success(req,f'sesion cerrada correctamente')
+    messages.success(req,f'Sesion cerrada con exito')
     return redirect('index')
 
 def registro(req):
@@ -120,11 +120,10 @@ def nuevoProducto(req):
         formulario = FormularioProducto(req.POST, req.FILES)
         if formulario.is_valid():#Lado del servidor
             formulario.save()
-            print("---Se guardo un producto---")
+            messages.success(req,f'Guardado')
             return HttpResponseRedirect(reverse("nuevo-producto"))
     else:
         formulario = FormularioProducto()
-        print("-x-No se guardo un producto-x-")
         return render(req, "nuevo-producto/nuevo-producto.html", {
             "form_producto": formulario
         })
@@ -137,6 +136,7 @@ def modificarProducto(req, producto_id):
         formulario = FormularioProducto(req.POST, instance=producto)
         if formulario.is_valid():
             formulario.save()
+            messages.success(req,f'Modificación exitosa')
             return render(req, "producto/producto.html", {
                 'producto': producto
             })
@@ -151,10 +151,8 @@ def modificarProducto(req, producto_id):
 def eliminarProducto(req, producto_id):
     producto = get_object_or_404(Producto, id=producto_id)
     producto.delete()
-    return render(req, "productos/productos.html", {
-        'lista_productos': Producto.objects.all()
-    })
-
+    messages.success(req,f'producto eliminado exitoso')
+    return redirect('index')
 #Pasar el contexto a travez de un diccionario como tercer parametro
 #Se accede a las sesiones por medio de request.session["item"], los elementos de la sesion son un string
 

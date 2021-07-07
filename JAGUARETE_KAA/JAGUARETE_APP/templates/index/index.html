@@ -4,11 +4,11 @@
 <!--SECTION-->
 <section id="contenido">
         <!--    CARGA DE PRODUCTOS  -->
-        <h2>Ultimos productos</h2>
+        <h1 id="titulos">Ultimos productos</h1>
         <div id="ultimos_productos">
             {% for producto in ultimos_productos %}
             <div id="bloque">
-                <h2> {{ producto.titulo }} </h2>
+                <h3 id="titulos"> {{ producto.titulo }} </h3>
                 <img src="/JAGUARETE_APP{{ producto.imagen.url }}" alt="Imagen del producto">
               
 
@@ -42,7 +42,7 @@
         </div>
 
         <div id="bloque_Max">
-            <h2>MÁS PRODUCTOS</h2>
+            <h2 id="titulos">MÁS PRODUCTOS</h2>
             <ul id="mas_productos">
                 {% for producto in otros_productos %}
 

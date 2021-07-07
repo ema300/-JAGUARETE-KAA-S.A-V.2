@@ -15,18 +15,21 @@
 </head>
 
 <body>
+    
     <!-- {{perms.CARRITO}} -->
     <!-- si hay mensajes -->
     {% if messages %} 
     {% for message in messages %}
-    <div class="notification {{message.tags}}">
+    <div id="notificaciones" class="notification {{message.tags}}">
         {{message}}
     </div>
     {%endfor%}
     {%endif%}
+    
     <div id="contenedor">
+        
         <header id="encabezado">
-            
+           
             {%if not request.user.is_authenticated %}
                 <button type="button" class="btn btn-success" role="link" onclick="window.location='/JAGUARETE_APP/login'">LOGIN</button>
                 <button type="button" class="btn btn-success" role="link" onclick="window.location='/JAGUARETE_APP/registro'">REGISTRO</button>
@@ -35,10 +38,15 @@
                 <!-- si tiene permiso de ver al carrito -->
                 <!-- {{perms.JAGUARETE_APP.view_carrito}}  -->
             {%if perms.JAGUARETE_APP.view_carrito%}
-                <button type="button" class="btn btn-success" role="link" onclick="window.location='/JAGUARETE_APP/carrito'">CARRITO</button>
+                <button type="button" class="btn btn-success" role="link" onclick="window.location='/JAGUARETE_APP/carrito'">CARRITO <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                    width="16" height="16"
+                    viewBox="0 0 226 226"
+                    style=" fill:#000000;"><g transform="translate(5.311,5.311) scale(0.953,0.953)"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="none" stroke-linecap="butt" stroke-linejoin="none" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g fill="#ffffff" stroke="#cccccc" stroke-width="11" stroke-linejoin="round"><path d="M42.375,14.125c9.26953,0 17.49072,6.06934 20.19434,14.89747l0.2207,0.66211l10.9248,97.44042h91.26075c3.42089,0 6.23486,-2.31738 6.95214,-5.68311l11.69727,-58.5415v-6.40039h15.66992l-13.51806,67.75586c-1.98633,9.8213 -10.75928,16.99414 -20.80127,16.99414h-89.60547l0.88281,7.94531c0.38622,3.64161 3.36572,6.23486 7.00731,6.23486h86.23975v14.125h-12.74561c7.22803,0.77247 12.74561,6.8418 12.74561,14.06983c0,7.77978 -6.34522,14.125 -14.125,14.125c-7.77978,0 -14.125,-6.34522 -14.125,-14.125c0,-7.22803 5.46241,-13.29736 12.63525,-14.06983h-67.70067c7.17284,0.77247 12.69042,6.8418 12.69042,14.06983c0,7.77978 -6.34522,14.125 -14.125,14.125c-7.77978,0 -14.125,-6.34522 -14.125,-14.125c0,-7.22803 5.46241,-13.29736 12.63525,-14.06983c-10.70409,0 -19.86328,-8.11083 -21.07714,-18.81494l-13.18702,-117.63477c-0.99316,-2.86914 -3.58642,-4.85547 -6.62109,-4.85547h-28.25v-14.125zM127.125,28.25v28.25h28.25v14.125h-28.25v28.25h-14.125v-28.25h-28.25v-14.125h28.25v-28.25z"></path></g><path d="M0,226v-226h226v226z" fill="none" stroke="none" stroke-width="1" stroke-linejoin="miter"></path><g fill="#ffffff" stroke="none" stroke-width="1" stroke-linejoin="miter"><path d="M14.125,14.125v14.125h28.25c3.03467,0 5.62794,1.98633 6.62109,4.85547l13.18702,117.63477c1.21386,10.70411 10.37305,18.81494 21.07714,18.81494c-7.17284,0.77247 -12.63525,6.8418 -12.63525,14.06983c0,7.77978 6.34522,14.125 14.125,14.125c7.77978,0 14.125,-6.34522 14.125,-14.125c0,-7.22803 -5.51758,-13.29736 -12.69042,-14.06983h67.70067c-7.17284,0.77247 -12.63525,6.8418 -12.63525,14.06983c0,7.77978 6.34522,14.125 14.125,14.125c7.77978,0 14.125,-6.34522 14.125,-14.125c0,-7.22803 -5.51758,-13.29736 -12.74561,-14.06983h12.74561v-14.125h-86.23975c-3.64159,0 -6.62109,-2.59325 -7.00731,-6.23486l-0.88281,-7.94531h89.60547c10.04199,0 18.81494,-7.17284 20.80127,-16.99414l13.51806,-67.75586h-15.66992v6.40039l-11.69727,58.5415c-0.71728,3.36573 -3.53125,5.68311 -6.95214,5.68311h-91.26075l-10.9248,-97.44042l-0.2207,-0.66211c-2.70362,-8.82812 -10.92481,-14.89747 -20.19434,-14.89747zM113,28.25v28.25h-28.25v14.125h28.25v28.25h14.125v-28.25h28.25v-14.125h-28.25v-28.25z"></path></g><path d="" fill="none" stroke="none" stroke-width="1" stroke-linejoin="miter"></path><path d="" fill="none" stroke="none" stroke-width="1" stroke-linejoin="miter"></path></g></g></svg></button> 
             
             {%endif%}
                 {%endif%}
+
+               
         </header>
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
@@ -48,7 +56,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/JAGUARETE_APP/index"><b style="color: brown;">JAGUA</b>RETE KAA</a>
+                <span id="logo">
+                    <img src="{% static 'logos/logo.png' %}"  alt="">
+                </span>
+                <a class="navbar-brand" href="/JAGUARETE_APP/index"><b style="color: rgb(209 109 52);">JAGUA</b>RETE KAA</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
@@ -92,6 +103,7 @@
             <div class="copyright"><!-- copyright -->
                 &copy; 2021 Jaguarete KAA. Derechos reservados.
             </div>
+            
         </footer>
     </div>
 </body>

@@ -10,7 +10,7 @@ class Categorias(models.Model):
         return f"{self.nombre}\n"
 class Producto(models.Model):
     titulo = models.CharField(max_length=50)
-    descripcion = models.CharField(max_length=512)
+    descripcion = models.TextField()
     categoria = models.ForeignKey(Categorias, on_delete=models.CASCADE, related_name="categoria", default="Tecnologia")
     precio = models.FloatField()
     imagen = models.ImageField(upload_to="images")
